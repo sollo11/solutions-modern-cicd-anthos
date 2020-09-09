@@ -1,0 +1,10 @@
+out
+node_modules
+<<<<<<< Updated upstream
+=======
+issues
+npm-debug.log
+dist
+vscode-whats-new
+vscode-whats-new
+>>>>>>> Stashed changes
