@@ -1,0 +1,42 @@
+{
+    "parser": "espree",
+    "parserOptions": {
+        "ecmaVersion": 2018
+    },
+    "env": {
+        "node": true,
+        "es6": true
+    },
+    "extends": "eslint:all",
+    "rules": {
+        "array-bracket-spacing": ["error", "always"],
+        "dot-location": ["error", "property"],
+        "func-style": ["error", "declaration"],
+        "function-call-argument-newline": ["error", "consistent"],
+        "function-paren-newline": ["error", "consistent"],
+        "global-require": "off",
+        "indent": ["error", "tab"],
+        "linebreak-style": "off",
+        "max-depth": ["error", 6],
+        "max-len": ["error", 130],
+        "max-lines": "off",
+        "max-lines-per-function": ["error", 90],
+        "max-statements": ["error", 40],
+        "no-extra-parens": "off",
+        "no-magic-numbers": "off",
+        "no-promise-executor-return": "off",
+        "no-sync": "off",
+        "no-tabs": "off",
+        "no-ternary": "off",
+        "no-undefined": "off",
+        "no-use-before-define": ["error", { "functions": false }],
+        "one-var": "off",
+        "operator-linebreak": ["error", "after"],
+        "padded-blocks": "off",
+        "prefer-destructuring": "off",
+        "prefer-named-capture-group": "off",
+        "prefer-template": "off",
+        "require-unicode-regexp": "off",
+        "sort-keys": "off"
+    }
+}

@@ -1,0 +1,117 @@
+apiVersion: iam.cnrm.cloud.google.com/v1beta1
+kind: IAMServiceAccount
+metadata:
+  name: gitlab-gcs
+  namespace: gitlab # {"$kpt-set":"namespace"}
+spec:
+  displayName: Gitlab Cloud Storage
+---
+apiVersion: iam.cnrm.cloud.google.com/v1beta1
+kind: IAMServiceAccountKey
+metadata:
+  name: gitlab-gcs
+  namespace: gitlab # {"$kpt-set":"namespace"}
+spec:
+  serviceAccountRef:
+    name: gitlab-gcs
+---
+apiVersion: iam.cnrm.cloud.google.com/v1beta1
+kind: IAMPolicyMember
+metadata:
+  name: gitlab-gcs
+  namespace: gitlab # {"$kpt-set":"namespace"}
+spec:
+  member: serviceAccount:gitlab-gcs@a-project-id.iam.gserviceaccount.com # {"$kpt-set":"gcs-sa"}
+  resourceRef:
+    apiVersion: resourcemanager.cnrm.cloud.google.com/v1beta1
+    kind: Project
+    external: projects/a-project-id # {"$kpt-set":"project-external"}
+  role: roles/storage.admin
+---
+apiVersion: storage.cnrm.cloud.google.com/v1beta1
+kind: StorageBucket
+metadata:
+  name: a-project-id-gitlab-backups # {"$kpt-set":"gcs-gitlab-backups"}
+  namespace: gitlab # {"$kpt-set":"namespace"}
+  annotations:
+    cnrm.cloud.google.com/force-destroy: "false"
+spec:
+  location: US-CENTRAL1
+  storageClass: STANDARD
+---
+apiVersion: storage.cnrm.cloud.google.com/v1beta1
+kind: StorageBucket
+metadata:
+  name: a-project-id-gitlab-uploads # {"$kpt-set":"gcs-gitlab-uploads"}
+  namespace: gitlab # {"$kpt-set":"namespace"}
+  annotations:
+    cnrm.cloud.google.com/force-destroy: "false"
+spec:
+  location: US-CENTRAL1
+  storageClass: STANDARD
+---
+apiVersion: storage.cnrm.cloud.google.com/v1beta1
+kind: StorageBucket
+metadata:
+  name: a-project-id-gitlab-artifacts # {"$kpt-set":"gcs-gitlab-artifacts"}
+  namespace: gitlab # {"$kpt-set":"namespace"}
+  annotations:
+    cnrm.cloud.google.com/force-destroy: "false"
+spec:
+  location: US-CENTRAL1
+  storageClass: STANDARD
+---
+apiVersion: storage.cnrm.cloud.google.com/v1beta1
+kind: StorageBucket
+metadata:
+  name: a-project-id-git-lfs # {"$kpt-set":"gcs-git-lfs"}
+  namespace: gitlab # {"$kpt-set":"namespace"}
+  annotations:
+    cnrm.cloud.google.com/force-destroy: "false"
+spec:
+  location: US-CENTRAL1
+  storageClass: STANDARD
+---
+apiVersion: storage.cnrm.cloud.google.com/v1beta1
+kind: StorageBucket
+metadata:
+  name: a-project-id-git-packages # {"$kpt-set":"gcs-git-packages"}
+  namespace: gitlab # {"$kpt-set":"namespace"}
+  annotations:
+    cnrm.cloud.google.com/force-destroy: "false"
+spec:
+  location: US-CENTRAL1
+  storageClass: STANDARD
+---
+apiVersion: storage.cnrm.cloud.google.com/v1beta1
+kind: StorageBucket
+metadata:
+  name: a-project-id-registry # {"$kpt-set":"gcs-registry"}
+  namespace: gitlab # {"$kpt-set":"namespace"}
+  annotations:
+    cnrm.cloud.google.com/force-destroy: "false"
+spec:
+  location: US-CENTRAL1
+  storageClass: STANDARD
+---
+apiVersion: storage.cnrm.cloud.google.com/v1beta1
+kind: StorageBucket
+metadata:
+  name: a-project-id-pseudo # {"$kpt-set":"gcs-pseudo"}
+  namespace: gitlab # {"$kpt-set":"namespace"}
+  annotations:
+    cnrm.cloud.google.com/force-destroy: "false"
+spec:
+  location: US-CENTRAL1
+  storageClass: STANDARD
+---
+apiVersion: storage.cnrm.cloud.google.com/v1beta1
+kind: StorageBucket
+metadata:
+  name: a-project-id-runner-cache # {"$kpt-set":"gcs-runner-cache"}
+  namespace: gitlab # {"$kpt-set":"namespace"}
+  annotations:
+    cnrm.cloud.google.com/force-destroy: "false"
+spec:
+  location: US-CENTRAL1
+  storageClass: STANDARD
