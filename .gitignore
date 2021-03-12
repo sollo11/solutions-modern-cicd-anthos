@@ -11,3 +11,19 @@ projects/
 cli/anthos-platform-cli
 cli/release/
 opensource.guide/
+5_output/4_demo/add-gsa-iam-policies.sh
+5_output/4_demo/backend.tf
+5_output/4_demo/build-applications 1.sh
+5_output/4_demo/build-applications.sh
+5_output/4_demo/cloudbuild 1.yaml
+5_output/4_demo/cloudbuild-destroy 1.yaml
+5_output/4_demo/cloudbuild-destroy.yaml
+5_output/4_demo/cloudbuild.yaml
+5_output/4_demo/delete-templates 1.sh
+5_output/4_demo/delete-templates.sh
+5_output/4_demo/mci-prepare.sh
+5_output/4_demo/modify-network-policies 1.sh
+5_output/4_demo/modify-network-policies.sh
+5_output/4_demo/outputs.tf
+5_output/4_demo/provision-applications 1.sh
+5_output/4_demo/provision-applications.sh
